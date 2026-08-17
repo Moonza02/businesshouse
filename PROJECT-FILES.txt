@@ -1,0 +1,41 @@
+ONEBO BUSINESS HOUSE — LATEST FULL PROJECT
+
+Latest visuals included:
+- public/babydiary-scene.jpg
+- public/babydiary-logo.png
+- public/cleanpro-scene.png  (latest approved CleanPro visual)
+
+Project structure:
+app/
+  api/health/route.ts
+  globals.css
+  layout.tsx
+  page.tsx
+  robots.ts
+  sitemap.ts
+components/
+  BrandMark.tsx
+  Icons.tsx
+  SiteChrome.tsx
+  Visuals.tsx
+lib/
+  site.ts
+public/
+  babydiary-logo.png
+  babydiary-scene.jpg
+  cleanpro-scene.png
+  favicon.svg
+  og-cover.png
+.env.example
+.gitignore
+eslint.config.mjs
+next.config.ts
+package.json
+railway.json
+tsconfig.json
+README.md
+
+Telegram:
+- https://t.me/onebofx
+- https://t.me/babydiaryuz
+- https://t.me/cleanprohoreca
