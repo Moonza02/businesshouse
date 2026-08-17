@@ -300,3 +300,172 @@ img { display: block; max-width: 100%; }
   *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
   .cursor-aura { display: none; }
 }
+
+/* === Real brand asset pass: BabyDiary + CleanPro === */
+.baby-logo-wrap {
+  width: 320px;
+  height: 220px;
+  overflow: visible;
+  display: grid;
+  place-items: center;
+  margin: 0 0 6px;
+}
+.baby-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: none;
+  filter: drop-shadow(0 10px 24px rgba(88, 60, 38, .08));
+}
+
+.baby-visual--photo {
+  height: 610px;
+  min-height: 610px;
+  overflow: visible;
+  display: grid;
+  place-items: center;
+}
+.baby-photo-frame {
+  position: absolute;
+  inset: 7% 0 5% 0;
+  overflow: hidden;
+  border-radius: 34px 6px 34px 6px;
+  border: 1px solid rgba(92, 68, 49, .18);
+  background: #e7ded5;
+  box-shadow: 0 32px 80px rgba(73, 56, 43, .18);
+  isolation: isolate;
+}
+.baby-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(105deg, rgba(215, 206, 195, .18), transparent 30% 72%, rgba(121, 93, 68, .10));
+}
+.baby-showcase-image {
+  object-fit: cover;
+  object-position: 48% center;
+  transform: scale(1.035);
+  animation: babyPhotoDrift 12s ease-in-out infinite alternate;
+}
+.baby-photo-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: inset 0 0 90px rgba(74, 57, 44, .13);
+}
+.baby-photo-line {
+  position: absolute;
+  z-index: 4;
+  width: 190px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(145, 101, 65, .55), transparent);
+  animation: babyLineFloat 8s ease-in-out infinite;
+}
+.baby-photo-line--one { right: 6%; top: 14%; }
+.baby-photo-line--two { left: 4%; bottom: 11%; animation-delay: -4s; }
+
+.cleanpro-visual--catalog {
+  height: 610px;
+  min-height: 610px;
+  overflow: visible;
+  display: grid;
+  place-items: center;
+}
+.clean-catalog-frame {
+  position: absolute;
+  inset: 6% 0 5% 0;
+  overflow: hidden;
+  border-radius: 7px;
+  border: 1px solid rgba(216, 198, 170, .18);
+  background: linear-gradient(145deg, #11271f, #07100d);
+  box-shadow: 0 34px 90px rgba(0, 0, 0, .42), inset 0 0 0 1px rgba(255,255,255,.018);
+  isolation: isolate;
+}
+.clean-catalog-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255,255,255,.035), transparent 25% 68%, rgba(15, 55, 43, .20));
+}
+.clean-catalog-image {
+  object-fit: contain;
+  object-position: center;
+  padding: 10px;
+  transform: scale(1.015);
+  animation: cleanCatalogDrift 14s ease-in-out infinite alternate;
+}
+.clean-catalog-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 42%, transparent 28%, rgba(5, 18, 14, .13) 100%);
+}
+.clean-catalog-scan {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  width: 16%;
+  left: -22%;
+  transform: skewX(-12deg);
+  background: linear-gradient(90deg, transparent, rgba(230, 217, 195, .075), transparent);
+  animation: cleanCatalogScan 8s ease-in-out infinite;
+  pointer-events: none;
+}
+.clean-orbit {
+  position: absolute;
+  z-index: 0;
+  border: 1px solid rgba(129, 172, 152, .10);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: cleanOrbit 16s linear infinite;
+}
+.clean-orbit--one { width: 620px; height: 230px; right: -8%; bottom: -3%; transform: rotateX(70deg); }
+.clean-orbit--two { width: 430px; height: 160px; right: 7%; bottom: 4%; transform: rotateX(70deg); animation-direction: reverse; animation-duration: 11s; }
+.cleanpro-visual--catalog .clean-lines {
+  z-index: 5;
+  right: 2%;
+  top: 2%;
+  color: rgba(228, 218, 201, .52);
+}
+
+@keyframes babyPhotoDrift {
+  0% { transform: scale(1.035) translate3d(-.6%, 0, 0); }
+  100% { transform: scale(1.075) translate3d(.8%, -1%, 0); }
+}
+@keyframes babyLineFloat {
+  0%,100% { transform: translateX(0); opacity: .38; }
+  50% { transform: translateX(22px); opacity: .8; }
+}
+@keyframes cleanCatalogDrift {
+  0% { transform: scale(1.015) translate3d(-.5%, 0, 0); }
+  100% { transform: scale(1.045) translate3d(.5%, -.5%, 0); }
+}
+@keyframes cleanCatalogScan {
+  0%, 14% { left: -22%; opacity: 0; }
+  27% { opacity: 1; }
+  62%, 100% { left: 112%; opacity: 0; }
+}
+@keyframes cleanOrbit {
+  to { transform: rotateX(70deg) rotateZ(360deg); }
+}
+
+@media (max-width: 760px) {
+  .baby-logo-wrap { width: 260px; height: 185px; }
+  .baby-visual--photo,
+  .cleanpro-visual--catalog { height: 430px; min-height: 430px; }
+  .baby-photo-frame { inset: 5% 0 4%; border-radius: 24px 5px 24px 5px; }
+  .baby-showcase-image { object-position: 37% center; }
+  .baby-photo-line { width: 120px; }
+  .clean-catalog-frame { inset: 4% 0 4%; }
+  .clean-catalog-image { padding: 5px; }
+  .cleanpro-visual--catalog .clean-lines { display: none; }
+  .clean-orbit--one { width: 430px; height: 170px; right: -35%; }
+  .clean-orbit--two { width: 310px; height: 120px; right: -20%; }
+}
