@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function HouseVisual() {
   return (
     <div className="house-visual" aria-hidden="true">
@@ -56,62 +58,49 @@ export function TradingVisual() {
 
 export function BabyVisual() {
   return (
-    <div className="baby-visual" aria-hidden="true">
-      <div className="fabric fabric--one" />
-      <div className="fabric fabric--two" />
-      <div className="wardrobe">
-        <div className="wardrobe-rail" />
-        <Garment x={10} shade="light" />
-        <Garment x={29} shade="mid" />
-        <Garment x={48} shade="light" />
-        <Garment x={67} shade="dark" />
-      </div>
-      <div className="baby-platform">
-        <div className="bear"><span className="ear e1"/><span className="ear e2"/><span className="head"><i/><b/></span><span className="body"/></div>
-        <div className="folds"><i/><i/><i/></div>
+    <div className="baby-visual baby-visual--photo" aria-hidden="true">
+      <div className="baby-photo-frame">
+        <Image
+          src="/babydiary-showcase.jpg"
+          alt=""
+          fill
+          sizes="(max-width: 760px) 100vw, 58vw"
+          className="baby-showcase-image"
+          priority={false}
+        />
+        <div className="baby-photo-vignette" />
+        <div className="baby-photo-line baby-photo-line--one" />
+        <div className="baby-photo-line baby-photo-line--two" />
       </div>
       <div className="baby-float baby-float--one">soft</div>
-      <div className="baby-float baby-float--two">memory</div>
+      <div className="baby-float baby-float--two">premium</div>
       <div className="baby-float baby-float--three">comfort</div>
-    </div>
-  );
-}
-
-function Garment({ x, shade }: { x: number; shade: "light" | "mid" | "dark" }) {
-  return (
-    <div className={`garment garment--${shade}`} style={{ left: `${x}%` }}>
-      <span className="hanger" />
-      <span className="garment-body"><i/><i/></span>
     </div>
   );
 }
 
 export function CleanProVisual() {
   return (
-    <div className="cleanpro-visual" aria-hidden="true">
-      <div className="molecules">
-        <i style={{ left: "8%", top: "28%" }} /><i style={{ left: "24%", top: "17%" }} /><i style={{ left: "34%", top: "35%" }} />
-        <i style={{ left: "17%", top: "52%" }} /><i style={{ left: "42%", top: "58%" }} /><b className="bond b1"/><b className="bond b2"/><b className="bond b3"/><b className="bond b4"/>
+    <div className="cleanpro-visual cleanpro-visual--catalog" aria-hidden="true">
+      <div className="clean-catalog-frame">
+        <Image
+          src="/cleanpro-catalog.png"
+          alt=""
+          fill
+          sizes="(max-width: 760px) 100vw, 58vw"
+          className="clean-catalog-image"
+          priority={false}
+        />
+        <div className="clean-catalog-shade" />
+        <div className="clean-catalog-scan" />
       </div>
-      <div className="water-ring water-ring--one" /><div className="water-ring water-ring--two" />
-      <div className="products">
-        <Bottle kind="spray" size="small" label="KITCHEN" />
-        <Bottle kind="jug" size="large" label="ALL PURPOSE" />
-        <Bottle kind="spray" size="mid" label="SURFACE" />
-        <Bottle kind="bottle" size="small" label="SANITIZER" />
+      <div className="clean-orbit clean-orbit--one" />
+      <div className="clean-orbit clean-orbit--two" />
+      <div className="clean-lines">
+        <span>PROFESSIONAL CLEANING</span>
+        <span>HORECA STANDARD</span>
+        <span>CATALOG / PRODUCT SYSTEM</span>
       </div>
-      <div className="clean-lines"><span>SAFE SURFACES</span><span>STRONG RESULTS</span><span>HORECA STANDARD</span></div>
-    </div>
-  );
-}
-
-function Bottle({ kind, size, label }: { kind: "spray" | "jug" | "bottle"; size: "small" | "mid" | "large"; label: string }) {
-  return (
-    <div className={`bottle bottle--${kind} bottle--${size}`}>
-      {kind === "spray" && <div className="spray-head"><i/></div>}
-      {kind === "jug" && <div className="jug-handle" />}
-      {kind === "bottle" && <div className="bottle-cap" />}
-      <div className="bottle-label"><strong>CP</strong><span>CleanPro</span><small>{label}</small></div>
     </div>
   );
 }
